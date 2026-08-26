@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pyngrok
+python-dotenv
+httpx
+websockets
+openai
+python-multipart
