@@ -95,8 +95,7 @@ complete utterance and the detector resets.
 |------|----------------|
 | `server.py` | FastAPI application. Resolves the public base URL (explicit `PUBLIC_URL` or an ngrok tunnel), serves `/answer` with the Stream XML, accepts the WebSocket at `/ws` and feeds every frame to a `CallSession`, and logs the `/stream-status` and `/hangup` callbacks. Entry point. |
 | `agent.py` | The `CallSession` class — per-call state machine holding VAD state, the audio buffer, playback state, and the conversation history. Contains the event router, the STT/LLM/TTS calls, the mu-law ⇄ WAV conversions, and the playback helpers. Also ships a standalone `websockets` server so the session can be hosted without FastAPI. |
-| `.env.example` | Template for the runtime configuration. Copy to `.env` and fill in. |
-| `LICENSE` | MIT licence text. |
+| `.env` | Template for the runtime configuration. |
 
 `agent.py` has no dependency on `server.py`. The `_send` helper detects whether it
 is holding a Starlette WebSocket (`send_text`) or a raw `websockets` connection
